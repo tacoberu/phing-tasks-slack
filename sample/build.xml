@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<project name="Slack" basedir="." default="send">
+	<taskdef file="${project.basedir}/libs/phing-tasks/tasks/tasks.properties"
+			classpath="${project.basedir}/libs/phing-tasks"
+			/>
+	<typedef name="taco.slack-config" classname="types.TacoSlackConfigType" />
+	<autoloader />
+
+	<target name="send">
+		<echo>Hello world!</echo>
+		<taco.slack refid="slack-config" channel="@martintakac">
+Hello world!
+How *are* you?
+		</taco.slack>
+	</target>
+
+	<taco.slack-config id="slack-config"
+		url="https://hooks.slack.com/services/T0VPsdfasdfasdfsdfS/kasdfasdfOsPAvcm8p0yM7ky"
+		username="Devel"
+		icon="mercurial"
+		channel="#cesys-deploy"
+		/>
+</project>
